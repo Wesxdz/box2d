@@ -40,6 +40,37 @@
 
 #include <new>
 
+b2World::b2World()
+{
+	m_destructionListener = nullptr;
+	m_debugDraw = nullptr;
+
+	m_bodyList = nullptr;
+	m_jointList = nullptr;
+
+	m_bodyCount = 0;
+	m_jointCount = 0;
+
+	m_warmStarting = true;
+	m_continuousPhysics = true;
+	m_subStepping = false;
+
+	m_stepComplete = true;
+
+	m_allowSleep = true;
+	m_gravity = b2Vec2_zero;
+
+	m_newContacts = false;
+	m_locked = false;
+	m_clearForces = true;
+
+	m_inv_dt0 = 0.0f;
+
+	m_contactManager.m_allocator = &m_blockAllocator;
+
+	memset(&m_profile, 0, sizeof(b2Profile));
+}
+
 b2World::b2World(const b2Vec2& gravity)
 {
 	m_destructionListener = nullptr;

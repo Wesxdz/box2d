@@ -46,6 +46,7 @@ class b2Joint;
 class B2_API b2World
 {
 public:
+	b2World();
 	/// Construct a world object.
 	/// @param gravity the world gravity vector.
 	b2World(const b2Vec2& gravity);
